@@ -1,0 +1,58 @@
+-- Create a simple day and night scenario that will automatically change from day to night.------------------------
+---------------------------------------------------code------------------------------------------------------------
+
+#include <GL/freeglut.h>
+#include <iostream>
+
+bool isDay = true;
+GLfloat sunPosition = -20.0f; 
+
+void init() {
+    glClearColor(0.0, 0.0, 0.0, 1.0);
+}
+
+void drawSun() {
+    glColor3f(1.0, 1.0, 0.0); 
+    glTranslatef(sunPosition, 20.0f, -50.0f);
+    glutSolidSphere(4, 30, 30); 
+}
+
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glLoadIdentity();
+
+    if (isDay) {
+        glClearColor(0.529, 0.808, 0.922, 1.0); 
+        drawSun();
+        sunPosition += 0.05f; 
+        if (sunPosition > 50.0f) {
+            sunPosition = -50.0f; 
+        }
+    }
+    else {
+        glClearColor(0.0, 0.0, 0.1, 1.0); 
+    }
+
+    glutSwapBuffers();
+}
+
+void update(int value) {
+    isDay = !isDay; 
+    glutPostRedisplay();
+    glutTimerFunc(5000, update, 0); 
+}
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+    glutInitWindowSize(800, 600);
+    glutCreateWindow("Day and Night Scenario");
+
+    init();
+
+    glutDisplayFunc(display);
+    glutTimerFunc(5000, update, 0); 
+
+    glutMainLoop();
+    return 0;
+}

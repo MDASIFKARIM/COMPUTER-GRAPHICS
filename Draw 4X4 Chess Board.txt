@@ -1,0 +1,239 @@
+---------------------------Draw 4X4 Chess Board--------------------------
+----------------------------code---------------------------------------
+
+#include <windows.h>  
+#include <GL/glut.h>  
+#include <math.h>
+
+void display() {
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f); 
+    glClear(GL_COLOR_BUFFER_BIT);        
+    glLineWidth(7.5);
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(1.0f, 1.0f, 1.0f);
+glVertex2f(2.0+20,1.0);
+glVertex2f(7.0+20,1.0);
+glVertex2f(7.0+20,6.0);
+glVertex2f(2.0+20,6.0);
+glEnd();
+
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(0.0f, 0.0f, 0.0f);
+glVertex2f(2.0+15,1.0);
+glVertex2f(7.0+15,1.0);
+glVertex2f(7.0+15,6.0);
+glVertex2f(2.0+15,6.0);
+glEnd();
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(1.0f, 1.0f, 1.0f);
+glVertex2f(2.0+10,1.0);
+glVertex2f(7.0+10,1.0);
+glVertex2f(7.0+10,6.0);
+glVertex2f(2.0+10,6.0);
+glEnd();
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(0.0f, 0.0f, 0.0f);
+glVertex2f(2.0+5,1.0);
+glVertex2f(7.0+5,1.0);
+glVertex2f(7.0+5,6.0);
+glVertex2f(2.0+5,6.0);
+glEnd();
+
+
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(0.0f, 0.0f, 0.0f);
+glVertex2f(2.0+20,1.0-5);
+glVertex2f(7.0+20,1.0-5);
+glVertex2f(7.0+20,6.0-5);
+glVertex2f(2.0+20,6.0-5);
+glEnd();
+
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(1.0f, 1.0f, 1.0f);
+glVertex2f(2.0+15,1.0-5);
+glVertex2f(7.0+15,1.0-5);
+glVertex2f(7.0+15,6.0-5);
+glVertex2f(2.0+15,6.0-5);
+glEnd();
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(0.0f, 0.0f, 0.0f);
+glVertex2f(2.0+10,1.0-5);
+glVertex2f(7.0+10,1.0-5);
+glVertex2f(7.0+10,6.0-5);
+glVertex2f(2.0+10,6.0-5);
+glEnd();
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(1.0f, 1.0f, 1.0f);
+glVertex2f(2.0+5,1.0-5);
+glVertex2f(7.0+5,1.0-5);
+glVertex2f(7.0+5,6.0-5);
+glVertex2f(2.0+5,6.0-5);
+glEnd();
+
+
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(1.0f, 1.0f, 1.0f);
+glVertex2f(2.0+20,1.0-10);
+glVertex2f(7.0+20,1.0-10);
+glVertex2f(7.0+20,6.0-10);
+glVertex2f(2.0+20,6.0-10);
+glEnd();
+
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(0.0f, 0.0f, 0.0f);
+glVertex2f(2.0+15,1.0-10);
+glVertex2f(7.0+15,1.0-10);
+glVertex2f(7.0+15,6.0-10);
+glVertex2f(2.0+15,6.0-10);
+glEnd();
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(1.0f, 1.0f, 1.0f);
+glVertex2f(2.0+10,1.0-10);
+glVertex2f(7.0+10,1.0-10);
+glVertex2f(7.0+10,6.0-10);
+glVertex2f(2.0+10,6.0-10);
+glEnd();
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(0.0f, 0.0f, 0.0f);
+glVertex2f(2.0+5,1.0-10);
+glVertex2f(7.0+5,1.0-10);
+glVertex2f(7.0+5,6.0-10);
+glVertex2f(2.0+5,6.0-10);
+glEnd();
+
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(0.0f, 0.0f, 0.0f);
+glVertex2f(2.0+20,1.0-5);
+glVertex2f(7.0+20,1.0-5);
+glVertex2f(7.0+20,6.0-5);
+glVertex2f(2.0+20,6.0-5);
+glEnd();
+
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(1.0f, 1.0f, 1.0f);
+glVertex2f(2.0+15,1.0-5);
+glVertex2f(7.0+15,1.0-5);
+glVertex2f(7.0+15,6.0-5);
+glVertex2f(2.0+15,6.0-5);
+glEnd();
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(0.0f, 0.0f, 0.0f);
+glVertex2f(2.0+10,1.0-5);
+glVertex2f(7.0+10,1.0-5);
+glVertex2f(7.0+10,6.0-5);
+glVertex2f(2.0+10,6.0-5);
+glEnd();
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(1.0f, 1.0f, 1.0f);
+glVertex2f(2.0+5,1.0-5);
+glVertex2f(7.0+5,1.0-5);
+glVertex2f(7.0+5,6.0-5);
+glVertex2f(2.0+5,6.0-5);
+glEnd();
+
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(0.0f, 0.0f, 0.0f);
+glVertex2f(2.0+20,1.0-15);
+glVertex2f(7.0+20,1.0-15);
+glVertex2f(7.0+20,6.0-15);
+glVertex2f(2.0+20,6.0-15);
+glEnd();
+
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(1.0f, 1.0f, 1.0f);
+glVertex2f(2.0+15,1.0-15);
+glVertex2f(7.0+15,1.0-15);
+glVertex2f(7.0+15,6.0-15);
+glVertex2f(2.0+15,6.0-15);
+glEnd();
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(0.0f, 0.0f, 0.0f);
+glVertex2f(2.0+10,1.0-15);
+glVertex2f(7.0+10,1.0-15);
+glVertex2f(7.0+10,6.0-15);
+glVertex2f(2.0+10,6.0-15);
+glEnd();
+
+
+
+glBegin(GL_POLYGON);
+glColor3f(1.0f, 1.0f, 1.0f);
+glVertex2f(2.0+5,1.0-15);
+glVertex2f(7.0+5,1.0-15);
+glVertex2f(7.0+5,6.0-15);
+glVertex2f(2.0+5,6.0-15);
+glEnd();
+
+
+glFlush();  
+}
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitWindowSize(600,600);
+    //glOrtho(-20,20);             
+    glutCreateWindow("OpenGL Setup Test");
+    gluOrtho2D(-30,60,-50,50); 
+    //glutInitWindowSize(520, 1220);
+    glutDisplayFunc(display);
+    glutMainLoop();           
+    return 0;
+}
+

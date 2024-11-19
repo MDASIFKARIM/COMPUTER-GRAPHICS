@@ -1,0 +1,338 @@
+---------------------------Create the batman logo given below----------
+----------------------------code---------------------------------------
+
+#include <cstdio>
+#include<GL/gl.h>
+#include <GL/glut.h>
+
+void myDisplay(void)
+{
+glClear (GL_COLOR_BUFFER_BIT);
+glColor3ub (128, 128, 128);
+glBegin(GL_POLYGON);
+glVertex2i(180, 10);
+glVertex2i(20, 140);
+glVertex2i(20, 320);
+glVertex2i(180, 460);
+glVertex2i(470, 460);
+glVertex2i(630, 320);
+glVertex2i(630, 140);
+glVertex2i(470, 10);
+glEnd();
+
+glBegin(GL_POLYGON);
+glColor3ub (255, 255, 0);
+glVertex2i(190, 30);
+glVertex2i(40, 150);
+glVertex2i(40, 310);
+glVertex2i(190, 440);
+glVertex2i(460, 440);
+glVertex2i(610, 310);
+glVertex2i(610, 150);
+glVertex2i(460, 30);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (0, 0, 0);
+glVertex2i(60, 170);
+glVertex2i(60, 290);
+glVertex2i(590, 290);
+glVertex2i(590, 170);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (0, 0, 0);
+glVertex2i(250, 75);
+glVertex2i(250, 400);
+glVertex2i(400, 400);
+glVertex2i(400, 75);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(290, 380);
+glVertex2i(290, 410);
+glVertex2i(360, 410);
+glVertex2i(360, 380);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(380, 310);
+glVertex2i(380, 410);
+glVertex2i(400, 410);
+glVertex2i(400, 310);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(250, 310);
+glVertex2i(250, 410);
+glVertex2i(270, 410);
+glVertex2i(270, 310);
+glEnd();
+
+glBegin(GL_TRIANGLES);
+glColor3ub (0, 0, 0);
+glVertex2i(60, 290);
+glVertex2i(210, 410);
+glVertex2i(210, 290);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(190, 310);
+glVertex2i(190, 360);
+glVertex2i(210, 360);
+glVertex2i(210, 310);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(170, 380);
+glVertex2i(170, 410);
+glVertex2i(210, 410);
+glVertex2i(210, 380);
+glEnd();
+
+glBegin(GL_TRIANGLES);
+glColor3ub (0, 0, 0);
+glVertex2i(210, 60);
+glVertex2i(60, 170);
+glVertex2i(210, 170);
+glEnd();
+
+glBegin(GL_TRIANGLES);
+glColor3ub (0, 0, 0);
+glVertex2i(440, 290);
+glVertex2i(440, 410);
+glVertex2i(590, 290);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(440, 310);
+glVertex2i(440, 360);
+glVertex2i(460, 360);
+glVertex2i(460, 310);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(440, 380);
+glVertex2i(440, 410);
+glVertex2i(480, 410);
+glVertex2i(480, 380);
+glEnd();
+
+glBegin(GL_TRIANGLES);
+glColor3ub (0, 0, 0);
+glVertex2i(440, 60);
+glVertex2i(440, 170);
+glVertex2i(590, 170);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(380, 60);
+glVertex2i(380, 150);
+glVertex2i(400, 150);
+glVertex2i(400, 60);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(360, 60);
+glVertex2i(360, 130);
+glVertex2i(380, 130);
+glVertex2i(380, 60);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(339, 60);
+glVertex2i(339, 90);
+glVertex2i(360, 90);
+glVertex2i(360, 60);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(250, 60);
+glVertex2i(250, 150);
+glVertex2i(270, 150);
+glVertex2i(270, 60);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(270, 60);
+glVertex2i(270, 130);
+glVertex2i(290, 130);
+glVertex2i(290, 60);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(290, 60);
+glVertex2i(290, 90);
+glVertex2i(312, 90);
+glVertex2i(312, 60);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (0, 0, 0);
+glVertex2i(420, 110);
+glVertex2i(420, 170);
+glVertex2i(440, 170);
+glVertex2i(440, 110);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255, 255, 0);
+glVertex2i(440, 60);
+glVertex2i(440, 90);
+glVertex2i(480, 90);
+glVertex2i(480, 60);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (0, 0, 0);
+glVertex2i(440, 75);
+glVertex2i(440, 90);
+glVertex2i(465, 90);
+glVertex2i(465, 75);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (0,0, 0);
+glVertex2i(400, 130);
+glVertex2i(400, 170);
+glVertex2i(420, 170);
+glVertex2i(420, 130);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (0,0, 0);
+glVertex2i(230, 130);
+glVertex2i(230, 170);
+glVertex2i(250, 170);
+glVertex2i(250, 130);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (0,0, 0);
+glVertex2i(210, 110);
+glVertex2i(210, 170);
+glVertex2i(230, 170);
+glVertex2i(230, 110);
+glEnd();
+
+Toukir Aiub, [7/17/2023 9:56 PM]
+glBegin(GL_QUADS);
+glColor3ub (255,255, 0);
+glVertex2i(210, 60);
+glVertex2i(210, 90);
+glVertex2i(170, 90);
+glVertex2i(170, 60);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (0,0, 0);
+glVertex2i(210, 75);
+glVertex2i(210, 90);
+glVertex2i(185, 90);
+glVertex2i(185, 75);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255,255, 0);
+glVertex2i(562, 150);
+glVertex2i(562, 170);
+glVertex2i(590, 170);
+glVertex2i(590, 150);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255,255, 0);
+glVertex2i(565, 130);
+glVertex2i(565, 150);
+glVertex2i(536, 150);
+glVertex2i(536, 130);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255,255, 0);
+glVertex2i(560, 110);
+glVertex2i(560, 130);
+glVertex2i(508, 130);
+glVertex2i(508, 110);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255,255, 0);
+glVertex2i(510, 90);
+glVertex2i(510, 110);
+glVertex2i(482, 110);
+glVertex2i(482, 90);
+glEnd();
+//
+glBegin(GL_QUADS);
+glColor3ub (255,255, 0);
+glVertex2i(140, 90);
+glVertex2i(140, 110);
+glVertex2i(168, 110);
+glVertex2i(168, 90);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255,255, 0);
+glVertex2i(115, 110);
+glVertex2i(115, 130);
+glVertex2i(143, 130);
+glVertex2i(143, 110);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255,255, 0);
+glVertex2i(88, 130);
+glVertex2i(88, 150);
+glVertex2i(115, 150);
+glVertex2i(115, 130);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub (255,255, 0);
+glVertex2i(60, 150);
+glVertex2i(60, 170);
+glVertex2i(88, 170);
+glVertex2i(88, 150);
+glEnd();
+
+
+glFlush ();
+}
+
+void myInit (void)
+{
+glClearColor(0.0, 0.0, 0.0, 0.0);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluOrtho2D(0.0, 640.0, 0.0, 480.0);
+}
+
+
+
+
+
+int main(int argc, char** argv)
+{
+glutInit(&argc, argv);
+glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize (640, 480);
+glutInitWindowPosition (100, 150);
+glutCreateWindow ("");
+glutDisplayFunc(myDisplay);
+myInit ();
+glutMainLoop();
+}

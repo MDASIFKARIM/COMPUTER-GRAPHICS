@@ -1,0 +1,71 @@
+-----Create an animation using two boxes that will move in the opposite direction.----------------
+-------------------------------------------------------code---------------------------------------
+
+#include <GL/freeglut.h>
+const int WINDOW_WIDTH = 800;
+const int WINDOW_HEIGHT = 600;
+
+
+float box1X = -50.0f; 
+float box2X = 50.0f;  
+float boxSpeed = 0.2f; 
+
+void init() {
+    glClearColor(0.8f, 0.8f, 0.8f, 1.0f); 
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(0, WINDOW_WIDTH, 0, WINDOW_HEIGHT);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+}
+
+void drawBox(float x) {
+    glColor3f(0.1f, 0.0f, 0.1f); 
+    glBegin(GL_QUADS);
+    glVertex2f(x, 100.0f);
+    glVertex2f(x + 100.0f, 100.0f);
+    glVertex2f(x + 100.0f, 200.0f);
+    glVertex2f(x, 200.0f);
+    glEnd();
+}
+
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glLoadIdentity();
+
+    
+    drawBox(box1X);
+    drawBox(box2X);
+
+    glutSwapBuffers();
+}
+
+void update(int value) {
+    box1X += boxSpeed; 
+    box2X -= boxSpeed; 
+
+    
+    if (box1X > WINDOW_WIDTH) {
+        box1X = -100.0f;
+    }
+    if (box2X < -100.0f) {
+        box2X = WINDOW_WIDTH;
+    }
+
+    glutPostRedisplay(); 
+    glutTimerFunc(16, update, 0); 
+}
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+    glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+    glutCreateWindow("Moving Boxes");
+
+    glutDisplayFunc(display);
+    glutTimerFunc(0, update, 0);
+
+    init();
+    glutMainLoop();
+    return 0;
+}

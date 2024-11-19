@@ -1,0 +1,106 @@
+-----Develop an animation that will call four objects separately, each after 20 ms.--------------------
+-------------------------------------------code--------------------------------------------------------
+
+#include <GL/glut.h>
+#include <cmath>
+
+int currentObject = 0;
+GLfloat currentColor[] = {1.0, 0.0, 0.0}; // Initial color (red)
+
+void drawTriangle() {
+    glColor3f(currentColor[3], currentColor[1], currentColor[2]);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(-0.5, -0.5);
+    glVertex2f(0.5, -0.5);
+    glVertex2f(0.0, 0.5);
+    glEnd();
+}
+
+void drawRectangle() {
+    glColor3f(currentColor[0], currentColor[5], currentColor[2]);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.5, -0.5);
+    glVertex2f(0.5, -0.5);
+    glVertex2f(0.5, 0.5);
+    glVertex2f(-0.5, 0.5);
+    glEnd();
+}
+
+void drawCircle() {
+    glColor3f(currentColor[0], currentColor[7], currentColor[2]);
+    glBegin(GL_TRIANGLE_FAN);
+    for (int i = 0; i <= 360; i += 5) {
+        float angle = i * 3.14159265358979323846 / 180.0;
+        float x = 0.5 * cos(angle);
+        float y = 0.5 * sin(angle);
+        glVertex2f(x, y);
+    }
+    glEnd();
+}
+
+void drawPentagon() {
+    glColor3f(currentColor[0], currentColor[3], currentColor[2]);
+    glBegin(GL_POLYGON);
+    for (int i = 0; i < 5; ++i) {
+        float angle = i * 2 * 3.14159265358979323846 / 5;
+        float x = 0.5 * cos(angle);
+        float y = 0.5 * sin(angle);
+        glVertex2f(x, y);
+    }
+    glEnd();
+}
+
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    switch (currentObject) {
+        case 0:
+            drawTriangle();
+            break;
+        case 1:
+            drawRectangle();
+            break;
+        case 2:
+            drawCircle();
+            break;
+        case 3:
+            drawPentagon();
+            break;
+    }
+
+    glutSwapBuffers();
+}
+
+void update(int value) {
+    glutPostRedisplay();
+    glutTimerFunc(20, update, 0);
+}
+
+void switchObject(int value) {
+
+    currentColor[0] = static_cast<GLfloat>(rand()) / RAND_MAX;
+    currentColor[1] = static_cast<GLfloat>(rand()) / RAND_MAX;
+    currentColor[2] = static_cast<GLfloat>(rand()) / RAND_MAX;
+
+    currentObject = (currentObject + 1) % 4;
+    glutTimerFunc(20, switchObject, 0);
+}
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+    glutCreateWindow("Object Animation");
+    glutInitWindowSize(400, 400);
+    glutDisplayFunc(display);
+
+    glOrtho(-1, 1, -1, 1, -1, 1);
+
+    glClearColor(0.0, 0.0, 0.0, 1.0);
+
+    glutTimerFunc(20, switchObject, 0);
+
+    glutTimerFunc(20, update, 0);
+
+    glutMainLoop();
+    return 0;
+}

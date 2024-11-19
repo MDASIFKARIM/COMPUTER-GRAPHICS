@@ -1,0 +1,55 @@
+---Develop an animation that will change the background color of the window after 20ms. Use at least two different colors.---
+--------------------------------------------------------------code-----------------------------------------------------------
+
+#include <windows.h>
+#include <GL/glut.h>
+#include <stdlib.h>
+
+GLfloat colors[][4] = {
+    {0.3f, 0.2f, 0.6f, 0.8f},
+    {0.1f, 0.3f, 0.7f, 0.5f},
+    {0.2f, 0.8f, 0.9f, 0.5f},
+    {0.9f, 0.5f, 0.2f, 0.5f}
+};
+
+GLfloat currentColor[4];
+int currentColorIndex = 0;
+float t = 0.0f;
+
+void timer(int value)
+{
+    t += 0.02f;
+
+
+    if (t >= 1.0f) {
+        t = 0.0f;
+        currentColorIndex = (currentColorIndex + 1) % 4;
+    }
+
+    for (int i = 0; i < 4; ++i) {
+        currentColor[i] = colors[currentColorIndex][i] * (1 - t) + colors[(currentColorIndex + 1) % 4][i] * t;
+    }
+
+    glutPostRedisplay();
+    glutTimerFunc(20, timer, 0);
+}
+
+void display()
+{
+    glClearColor(currentColor[0], currentColor[1], currentColor[2], currentColor[3]);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glutSwapBuffers();
+}
+
+int main(int argc, char **argv)
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
+    glutCreateWindow("Color Changing Background");
+    glutDisplayFunc(display);
+    glutTimerFunc(20, timer, 0);
+    glutMainLoop();
+
+    return 0;
+}

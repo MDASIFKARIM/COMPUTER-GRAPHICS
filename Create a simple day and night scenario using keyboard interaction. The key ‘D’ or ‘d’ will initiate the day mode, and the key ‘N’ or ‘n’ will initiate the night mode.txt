@@ -1,0 +1,51 @@
+------Create a simple day and night scenario using keyboard interaction. The key ‘D’ or ‘d’ will initiate the day mode, and the key ‘N’ or ‘n’ will initiate the night mode-------------------
+-------------------------------------------------------------------------------------code-----------------------------------------------------------------------------------------------------
+
+#include <GL/freeglut.h>
+#include <iostream>
+
+bool isDay = true; 
+
+void drawScene() {
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    if (isDay) {
+        glClearColor(0.529, 0.808, 0.922, 1.0); 
+    }
+    else {
+        glClearColor(0.0, 0.0, 0.0, 1.0); 
+    }
+
+    
+
+    glutSwapBuffers();
+}
+
+void keyboardFunc(unsigned char key, int x, int y) {
+    switch (key) {
+    case 'D':
+    case 'd':
+        isDay = true; 
+        break;
+    case 'N':
+    case 'n':
+        isDay = false; 
+        break;
+    default:
+        break;
+    }
+    glutPostRedisplay();
+}
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+    glutInitWindowSize(800, 600);
+    glutCreateWindow("Day and Night Scenario with Keyboard Interaction");
+
+    glutDisplayFunc(drawScene);
+    glutKeyboardFunc(keyboardFunc); 
+
+    glutMainLoop();
+    return 0;
+}
