@@ -1,0 +1,394 @@
+----Use the building, tree, lamppost and bench to create a scenario.---
+----------------------------code---------------------------------------
+
+#include <windows.h>  
+#include <GL/glut.h>  
+#include <math.h>
+
+
+
+void initGL() {
+
+    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+}
+
+
+
+
+
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glLineWidth(7.5);
+
+
+
+
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.1f, 0.62f, 0.729f);
+    glVertex2f(-1.0f, -0.1f);
+    glVertex2f(1.0f, -1.0f);
+    glVertex2f(1.0f, 1.0f);
+    glVertex2f(-1.0f, 1.0f);
+
+
+    glEnd();
+
+
+
+
+
+
+
+
+
+    glBegin(GL_POLYGON);
+
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glVertex2f(0.4f, 0.0f);
+    glVertex2f(0.4f, 1.0f);
+    glVertex2f(-0.4f, 1.0f);
+    glVertex2f(-0.4f, 0.0f);
+
+
+    glEnd();
+
+
+
+
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.529f, 0.8078f, 0.9804f);
+    glVertex2f(0.3f, 0.1f);
+    glVertex2f(0.3f, 0.2f);
+    glVertex2f(0.2f, 0.2f);
+    glVertex2f(0.2f, 0.1f);
+
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.294f, 0.8078f, 0.9804f);
+    glVertex2f(0.3f, 0.3f);
+    glVertex2f(0.3f, 0.4f);
+    glVertex2f(0.2f, 0.4f);
+    glVertex2f(0.2f, 0.3f);
+
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.5294f, 0.808f, 0.9804f);
+    glVertex2f(0.3f, 0.5f);
+    glVertex2f(0.3f, 0.6f);
+    glVertex2f(0.2f, 0.6f);
+    glVertex2f(0.2f, 0.5f);
+
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.94f, 0.8078f, 0.9804f);
+    glVertex2f(0.3f, 0.7f);
+    glVertex2f(0.3f, 0.8f);
+    glVertex2f(0.2f, 0.8f);
+    glVertex2f(0.2f, 0.7f);
+
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.5294f, 0.8078f, 0.9804f);
+    glVertex2f(0.3f, 0.9 - 0.03f);
+    glVertex2f(0.3f, 1.0 - 0.03f);
+    glVertex2f(0.2f, 1.0 - 0.03f);
+    glVertex2f(0.2f, 0.9 - 0.03f);
+
+
+    glEnd();
+
+
+
+
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.5298f, 0.8078f, 0.9804f);
+    glVertex2f(-0.2f, 0.1f);
+    glVertex2f(-0.2f, 0.2f);
+    glVertex2f(-0.3f, 0.2f);
+    glVertex2f(-0.3f, 0.1f);
+
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.5294f, 0.8078f, 0.9804f);
+    glVertex2f(-0.2f, 0.3f);
+    glVertex2f(-0.2f, 0.4f);
+    glVertex2f(-0.3f, 0.4f);
+    glVertex2f(-0.3f, 0.3f);
+
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.5294f, 0.8078f, 0.9804f);
+    glVertex2f(-0.2f, 0.5f);
+    glVertex2f(-0.2f, 0.6f);
+    glVertex2f(-0.3f, 0.6f);
+    glVertex2f(-0.3f, 0.5f);
+
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.5294f, 0.8078f, 0.9804f);
+    glVertex2f(-0.2f, 0.7f);
+    glVertex2f(-0.2f, 0.8f);
+    glVertex2f(-0.3f, 0.8f);
+    glVertex2f(-0.3f, 0.7f);
+
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.5294f, 0.8078f, 0.9804f);
+    glVertex2f(-0.2f, 0.9 - 0.03f);
+    glVertex2f(-0.2f, 1.0 - 0.03f);
+    glVertex2f(-0.3f, 1.0 - 0.03f);
+    glVertex2f(-0.3f, 0.9 - 0.03f);
+
+
+    glEnd();
+
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.5294f, 0.8078f, 0.9804f);
+    glVertex2f(0.1f, 0.0f);
+    glVertex2f(0.1f, 0.2f);
+    glVertex2f(-0.1f, 0.2f);
+    glVertex2f(-0.1f, 0.0f);
+
+
+    glEnd();
+
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glVertex2f(0.5f, 0.0f);
+    glVertex2f(-0.5f, 0.0f);
+    glVertex2f(-0.5f, -0.1f);
+    glVertex2f(0.5f, -0.1f);
+
+
+    glEnd();
+
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.698f, 0.969f, 0.592f);
+    glVertex2f(-1.0f, -0.1f);
+    glVertex2f(-1.0f, -0.9f);
+    glVertex2f(1.0f, -0.9f);
+    glVertex2f(1.0f, -0.1f);
+
+
+    glEnd();
+
+
+
+
+
+
+
+
+    glBegin(GL_POLYGON);
+
+    glColor3f(0.035f, 0.412f, 0.086f);
+
+
+    glVertex2f(1.0f, -1.0f);
+    glVertex2f(1.0f, -0.9f);
+    glVertex2f(-1.0f, -0.9f);
+    glVertex2f(-1.0f, -1.0f);
+
+
+    glEnd();
+
+
+
+    glBegin(GL_POLYGON);
+
+    glColor3f(0.671f, 0.314f, 0.169f);
+
+
+    glVertex2f(0.8 + 0.02f, 0.1f);
+    glVertex2f(0.8 + 0.02f, -0.9f);
+    glVertex2f(0.9 - 0.02f, -0.9f);
+    glVertex2f(0.9 - 0.02f, 0.1f);
+
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3f(0.035f, 0.412f, 0.086f);
+
+
+    glVertex2f(1.0f, 0.1f);
+    glVertex2f(0.9f, 0.3f);
+    glVertex2f(0.8f, 0.3f);
+    glVertex2f(0.7f, 0.1f);
+
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+
+    glColor3f(0.035f, 0.412f, 0.086f);
+
+
+    glVertex2f(1.0f, 0.3f);
+    glVertex2f(0.9f, 0.6f);
+    glVertex2f(0.8f, 0.6f);
+    glVertex2f(0.7f, 0.3f);
+
+
+    glEnd();
+
+
+
+
+
+
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.631f, 0.353f, 0.059f);
+    glVertex2f(0.6f, -0.7f);
+    glVertex2f(0.6f, -0.8f);
+    glVertex2f(-0.6f, -0.8f);
+    glVertex2f(-0.6f, -0.7f);
+
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.788f, 0.447f, 0.082f);
+    glVertex2f(0.6f, -0.7f);
+    glVertex2f(0.5f, -0.6f);
+    glVertex2f(-0.5f, -0.6f);
+    glVertex2f(-0.6f, -0.7f);
+
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.788f, 0.447f, 0.082f);
+    glVertex2f(0.4f, -0.8f);
+    glVertex2f(0.4f, -0.9f);
+    glVertex2f(0.5f, -0.9f);
+    glVertex2f(0.5f, -0.8f);
+
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.788f, 0.447f, 0.082f);
+    glVertex2f(-0.4f, -0.8f);
+    glVertex2f(-0.4f, -0.9f);
+    glVertex2f(-0.5f, -0.9f);
+    glVertex2f(-0.5f, -0.8f);
+
+
+    glEnd();
+
+
+
+
+
+
+
+
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glVertex2f(-0.7f, 0.3f);
+    glVertex2f(-0.8f, 0.3f);
+    glVertex2f(-0.8f, -0.9f);
+    glVertex2f(-0.7f, -0.9f);
+
+
+    glEnd();
+
+
+
+
+
+
+
+
+
+
+    glBegin(GL_POLYGON);
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glVertex2f(-0.6f, 0.3f);
+    glVertex2f(-0.6f, 0.4f);
+    glVertex2f(-0.9f, 0.4f);
+    glVertex2f(-0.9f, 0.3f);
+
+
+    glEnd();glBegin(GL_POLYGON);
+    glColor3f(0.906f, 0.949f, 0.569f);
+    glVertex2f(-0.7f, 0.4f);
+    glVertex2f(-0.6f, 0.5f);
+    glVertex2f(-0.7f, 0.7f);
+    glVertex2f(-0.8f, 0.7f);
+    glVertex2f(-0.9f, 0.5f);
+    glVertex2f(-0.8f, 0.4f);
+
+
+
+
+    glEnd();
+
+
+
+
+
+
+    glFlush();
+}
+
+
+
+
+
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitWindowSize(450, 450);
+    glutCreateWindow("OpenGL Setup Test");
+
+    glutDisplayFunc(display);
+    glutMainLoop();
+    return 0;
+}
