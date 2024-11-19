@@ -1,0 +1,60 @@
+--------Draw five storied building with windows and a front door-------
+----------------------------code---------------------------------------
+#include<windows.h>
+#include <GL/glut.h>
+void initGL() {
+    glClearColor(2.0f, 1.0f, 1.0f, 1.0f);
+}
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glBegin(GL_QUADS);
+    glColor3f(0.5f, 0.8f, 0.5);
+    glVertex2f(-0.7f, -0.8f);
+    glVertex2f(0.7f, -0.8f);
+    glVertex2f(0.7f, 0.8f);
+    glVertex2f(-0.7f, 0.8f);
+    glEnd();
+    glBegin(GL_QUADS);
+    glColor3f(0.5f, 0.1f, 0.1);
+    float windowWidth = 0.1f;
+    float windowHeight = 0.1f;
+    float windowSpacing = 0.2f;
+    float startX = -0.35f;
+    float startY = -0.55f;
+    int numFloors = 5;
+    int numWindowsPerFloor = 3;
+    for (int floor = 0; floor < numFloors; ++floor) {
+        for (int window = 0; window < numWindowsPerFloor; ++window) {
+            float x1 = startX + window * (windowWidth + windowSpacing);
+            float y1 = startY + floor * (windowHeight + windowSpacing);
+            float x2 = x1 + windowWidth;
+            float y2 = y1 + windowHeight;
+            glVertex2f(x1, y1);
+            glVertex2f(x2, y1);
+            glVertex2f(x2, y2);
+            glVertex2f(x1, y2);
+
+        }
+    }
+    glEnd();
+    glBegin(GL_QUADS);
+    glColor3f(0.2f, 0.3f, 0.1);
+    float doorWidth = 0.4f;
+    float doorHeight = 0.3f;
+    float doorX = -doorWidth / 2;
+    float doorY = -0.6f;
+    glVertex2f(doorX, doorY);
+    glVertex2f(doorX + doorWidth, doorY);
+    glVertex2f(doorX + doorWidth, doorY + doorHeight);
+    glVertex2f(doorX, doorY + doorHeight);
+    glEnd();
+    glFlush();
+}
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutCreateWindow("Building");
+    glutInitWindowSize(800, 600);
+    glutDisplayFunc(display);
+    glutMainLoop();
+    return 0;
+}
