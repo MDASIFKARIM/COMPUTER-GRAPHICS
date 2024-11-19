@@ -1,0 +1,142 @@
+--------Move your car off from left to right in a loop.--------------------------
+----------------------------------------code-------------------------------------
+
+#include <GL/glut.h>
+#include <cmath>
+GLfloat position = 0.0f;
+GLfloat speed = 0.01f;
+float wheelRotationAngle = 0.0;
+
+void drawCar() {
+    glColor3f(2.0f, 0.5f, 1.0f);
+    glBegin(GL_POLYGON);
+    glVertex2f(-0.5 + position, 0.0);
+    glVertex2f(-0.5 + position, 0.3);
+    glVertex2f(0.5 + position, 0.3);
+    glVertex2f(0.5 + position, 0.0);
+    glEnd();
+    glColor3f(0.1f, 0.0f, 0.0f);
+    glBegin(GL_POLYGON);
+    glVertex2f(-0.3 + position, 0.3);
+    glVertex2f(-0.3 + position, 0.5);
+    glVertex2f(0.3 + position, 0.5);
+    glVertex2f(0.3 + position, 0.3);
+    glEnd();
+    glColor3f(0.0, 1.0, 1.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(-0.35 + position, 0.35);
+    glVertex2f(-0.35 + position, 0.45);
+    glVertex2f(-0.1 + position, 0.45);
+    glVertex2f(-0.2 + position, 0.35);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glVertex2f(0.2 + position, 0.35);
+    glVertex2f(0.1 + position, 0.45);
+    glVertex2f(0.35 + position, 0.45);
+    glVertex2f(0.35 + position, 0.35);
+    glEnd();
+
+
+    const float wheelRadius = 0.1;
+    const float wheelY = 0.0;
+
+
+    glColor3f(0.0f, 0.5f, 1.0f);
+    glPushMatrix();
+    glTranslatef(-0.3 + position, wheelY, 0.0);
+    glRotatef(wheelRotationAngle, 0.0, 0.0, 1.0);
+    glBegin(GL_TRIANGLE_FAN);
+    for (int i = 0; i <= 360; i += 10) {
+        float angle = i * 3.14159 / 180.0;
+        glVertex2f(wheelRadius * cos(angle), wheelRadius * sin(angle));
+    }
+    glEnd();
+
+
+    glColor3f(0.1f, 0.0f, 0.1f);
+    glBegin(GL_POLYGON);
+    glVertex2f(-0.02, -0.05);
+    glVertex2f(-0.02, 0.05);
+    glVertex2f(0.02, 0.05);
+    glVertex2f(0.02, -0.05);
+    glEnd();
+
+    glPopMatrix();
+
+
+    glColor3f(0.0f, 0.5f, 1.0f);
+    glPushMatrix();
+    glTranslatef(0.3 + position, wheelY, 0.0);
+    glRotatef(wheelRotationAngle, 0.0, 0.0, 1.0);
+    glBegin(GL_TRIANGLE_FAN);
+    for (int i = 0; i <= 360; i += 10) {
+        float angle = i * 3.14159 / 180.0;
+        glVertex2f(wheelRadius * cos(angle), wheelRadius * sin(angle));
+    }
+    glEnd();
+
+
+    glColor3f(0.1f, 0.0f, 0.1f);
+    glBegin(GL_POLYGON);
+    glVertex2f(-0.02, -0.05);
+    glVertex2f(-0.02, 0.05);
+    glVertex2f(0.02, 0.05);
+    glVertex2f(0.02, -0.05);
+    glEnd();
+
+    glPopMatrix();
+}
+
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glLoadIdentity();
+
+    drawCar();
+
+    glutSwapBuffers();
+}
+
+void update(int value) {
+    wheelRotationAngle += 5.0;
+    if (wheelRotationAngle > 360.0) {
+        wheelRotationAngle -= 360.0;
+    }
+
+    glutPostRedisplay();
+    glutTimerFunc(16, update, 0);
+}
+
+void update2(int value) {
+    if (position <= -1)
+        position = 1.0f;
+    position -= speed;
+
+    glutPostRedisplay();
+    glutTimerFunc(16, update2, 0);
+}
+
+void reshape(int width, int height) {
+    glViewport(0, 0, width, height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(-1, 1, -1, 1);
+    glMatrixMode(GL_MODELVIEW);
+}
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+    glutCreateWindow("OpenGL Car");
+    glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
+
+    glClearColor(1.0, 1.0, 1.0, 1.0);
+
+    glutTimerFunc(25, update, 0);
+    glutTimerFunc(16, update2, 0);
+
+    glutMainLoop();
+
+    return 0;
+}
